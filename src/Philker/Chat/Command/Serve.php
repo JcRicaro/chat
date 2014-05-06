@@ -65,6 +65,11 @@ class Serve extends Command
             $this->line("<info>New message from " . $socket . ":</info> <comment>" . $message . "</comment><info><info>.</info>");
         });
 
+        $this->chat->getEmitter()->on("test", function()
+        {
+            $this->line("<info>Test</info>");
+        });
+
 
         $this->chat->getEmitter()->on("error", function(ClientInterface $client, $exception)
         {
